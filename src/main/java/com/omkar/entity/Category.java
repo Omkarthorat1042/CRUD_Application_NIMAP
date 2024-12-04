@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.aspectj.weaver.tools.Trace;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class Category {
 	private String name;
 	
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
 	private List<Product> product;
 	
 	
